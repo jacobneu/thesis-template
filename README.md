@@ -5,7 +5,7 @@
   Can be found under *[Releases](https://github.com/tomdjong/thesis-template/releases/latest)*. Showcases the template
 - `macros.sty`
   Add your personal macros here
-- `packages.sty`
+- `thesis.sty`
   Packages used and their options.
 
   **NB**. The PDF metadata is set in this file. Be sure to update it.
@@ -27,6 +27,20 @@
   well as the commands for inserting symbols and terms in their respective
   indices
 - `conclusion.tex`
+
+## Options to the thesis package
+
+The `\usepackage{thesis}` appearing in `main.tex` can be modified with the following options.
+
+### `mathalpha`
+The following options, when passed to the `thesis` package, will be passed on to `mathalpha`. See the [`mathalpha` documentation](https://ctan.math.illinois.edu/macros/latex/contrib/mathalpha/doc/mathalpha-doc.pdf).
+- `cal=`: Set font for `\mathcal` (e.g. `cal=cm`)
+- `frak=`: Set font for `\mathfrak` (e.g. `frak=euler`)
+- `scr=`: Set font for `\mathscr` (e.g. `scr=rsfs`)
+- `bb=`: Set font for `\mathbb` (e.g. `bb=ams`)
+
+### `ttscale`
+By default, the option `ttscale=.75` will be passed to the libertine package, making all `tt` fonts smaller. This can be changed by passing a different `ttscale` to `thesis` (e.g. `ttscale=1.0`).
 
 ## Coloured environments
 
