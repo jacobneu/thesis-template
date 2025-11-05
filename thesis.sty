@@ -1,3 +1,37 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{thesis}[2025/11/05 Thesis LaTeX package]
+
+\RequirePackage{xkeyval}
+
+%% Declare package options
+
+% ttscale (default=.75)
+\newcommand{\ttscale}{}
+\DeclareOptionX{ttscale}{\renewcommand{\ttscale}{#1}}
+
+% mathalpha arguments
+\def\mathalphaFrak{}
+\def\mathalphaBb{}
+\def\mathalphaScr{}
+\def\mathalphaCal{}
+\DeclareOptionX{frak}{\def\mathalphaFrak{frak=#1}}
+\DeclareOptionX{bb}{\def\mathalphaBb{bb=#1}}
+\DeclareOptionX{scr}{\def\mathalphaScr{scr=#1}}
+\DeclareOptionX{cal}{\def\mathalphaCal{cal=#1}}
+
+% For unknown options
+\DeclareOptionX*{\PackageWarning{thesis}{`\CurrentOption' ignored}}
+
+
+%% Execute package options
+
+\ExecuteOptionsX{ttscale=.75}
+
+
+\ProcessOptionsX\relax
+
+
+
 \usepackage[a4paper,bottom=1in]{geometry}
 % Fix fancyhdr warnings
 \setlength{\headheight}{14.5pt}
@@ -15,12 +49,12 @@
 
 \usepackage[final]{microtype}
 
-\usepackage[ttscale=.75]{libertine}
+\usepackage[ttscale=\ttscale]{libertine}
 \usepackage[libertine]{newtxmath}
 \usepackage{relsize}
 
 % Set nicer (= less bold, less vertical spacing) mathcal font
-\usepackage[cal=cm]{mathalpha}
+\usepackage[\mathalphaCal,\mathalphaScr,\mathalphaBb,\mathalphaFrak]{mathalpha}
 
 % Set up the opening page for the chapters
 \usepackage{titlesec}
